@@ -1,5 +1,5 @@
 function validateOrder() {
-
+    return true
 }
 export { validateOrder };
 

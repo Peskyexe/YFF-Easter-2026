@@ -7,6 +7,7 @@ const columnCount = 7;
 const cellCount = rowCount * columnCount;
 
 let currentDate = new Date();
+export default currentDate;
 
 
 function renderCalendar() {

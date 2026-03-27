@@ -32,6 +32,10 @@ app.use(express.static(publicPath));
 const pagesRoutes = require("./routes/pages.routes");
 app.use("/", pagesRoutes);
 
+const orderApiRoutes = require("./routes/order.routes");
+app.use("/api/order", orderApiRoutes);
+
+
 app.listen(process.env.PORT || 3000, () => {
     console.log("Server running on http://localhost:3000/bestill. To stop the server, press Ctrl + C");
 });

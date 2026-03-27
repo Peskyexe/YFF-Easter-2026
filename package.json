@@ -1,11 +1,13 @@
 {
   "main": "src/server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node src/server.js",
     "dev": "nodemon server.js"
   },
   "dependencies": {
-    "express": "^5.2.1"
+    "@prisma/client": "^6.19.2",
+    "express": "^5.2.1",
+    "prisma": "^6.19.2"
   },
   "devDependencies": {
     "connect-livereload": "^0.6.1",
