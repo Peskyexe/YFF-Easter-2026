@@ -90,8 +90,3 @@ function addTicketObject(element, type, ticketArray) {
         ticketArray.push(ticketObject)
     }
 }
-
-
-
-
-
