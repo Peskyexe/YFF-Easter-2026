@@ -3,9 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bestiling</title>
+
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/ordering.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="scripts/ordering/calender.js" defer type="module"></script>
+    <script src="scripts/ordering/increment_input.js" defer type="module"></script>
+    <script src="scripts/ordering/main.js" defer type="module"></script>
+    <script src="scripts/ordering/postal_code.js" defer type="module"></script>
+    <script src="scripts/ordering/validation.js" defer type="module"></script>
 </head>
 <body>
-    
+    <nav>
+        <h1>Hemsedal Skisenter</h1>
+    </nav>
+    <main>
+        <section class="user-info-wrapper">
+            <header>
+                <h2>Kontakt informasjon</h2>
+            </header>
+
+            <form id="user-info-form">
+
+                <div class="text-input-wrapper">
+                    <label for="name-input">Navn (fornavn og etternavn)</label>
+                    <input type="text" id="name-input" placeholder="Kari Nordmann" autocomplete="name" required>
+                </div>
+
+                <div class="text-input-wrapper">
+                    <label for="address-input">Adresse</label>
+                    <input type="text" id="address-input" autocomplete="address-line1" required>
+                </div>
+
+                <div id="post-wrapper">
+                    <div class="text-input-wrapper">
+                        <label for="post-number-input">Postnummer</label>
+                        <input type="text" id="post-number-input" autocomplete="postal-code" maxlength="4" pattern="[0-9]{4}" required>
+                    </div>
+
+                    <div class="text-input-wrapper">
+                        <label for="post-area-display">Poststed</label>
+                        <input type="text" id="post-area-display" disabled>
+                    </div>
+                </div>
+
+                <div class="text-input-wrapper">
+                    <label for="email-input">Epost</label>
+                    <input type="email" id="email-input" placeholder="eksempel@epost.no" autocomplete="email" required>
+                </div>
+
+                <div class="text-input-wrapper">
+                    <label for="phone-input">Mobilnummer</label>
+                    <span id="areaCode">+47</span>
+                    <input type="text" id="phone-input" placeholder="Fyll inn ditt mobilnummer (8 siffer)" maxlength="8" autocomplete="tel-national" required>
+                </div>                
+            </form>
+        </section>
+        <section class="pass-types-wrapper">
+            <header>
+                <h2>Heiskort</h2>
+            </header>
+
+            <ul>
+                <li id="pass-types-barn">
+                    <div>
+                        <label>Voksen</label>
+                    </div>
+                    <div class="increment-value-input">
+                        <button class="increment-remove">-</button>
+                        <span class="increment-value">0</span>
+                        <button class="increment-add enabled">+</button>
+                    </div>
+                </li>
+
+                <hr>
+
+                <li id="pass-types-barn">
+                    <div>
+                        <label>Ungdom</label>
+                        <p>13-19 år</p>
+                    </div>                    
+                    <div class="increment-value-input">
+                        <button class="increment-remove">-</button>
+                        <span class="increment-value">0</span>
+                        <button class="increment-add enabled">+</button>
+                    </div>
+                </li>
+
+                <hr>
+
+                <li id="pass-types-barn">
+                    <div>
+                        <label>Barn</label>
+                        <p>6-12 år</p>
+                    </div>
+                    <div class="increment-value-input">
+                        <button class="increment-remove">-</button>
+                        <span class="increment-value">0</span>
+                        <button class="increment-add enabled">+</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="date-selection-wrapper">
+            <header>
+                <h2>Dato</h2>
+            </header>
+
+            <div class="calendar-wrapper">
+                <div class="calendar-header">
+                    <label id="calendarLabel">Mars 2026</label>
+                    <button id="calendarPrevMonth"><i class="fa-solid fa-caret-up"></i></button>
+                    <button id="calendarNextMonth"><i class="fa-solid fa-caret-down"></i></button>
+                </div>
+                <table class="calendar" id="calendarTable">
+                    <tr class="calendar-header-row">
+                        <th>mandag</th>
+                        <th>tirsdag</th>
+                        <th>onsdag</th>
+                        <th>torsdag</th>
+                        <th>fredag</th>
+                        <th>lørdag</th>
+                        <th>søndag</th>
+                    </tr>
+                    <!-- Lastet inn av calender.js -->
+                    <tr class="calendar-row"></tr>
+                    <tr class="calendar-row"></tr>
+                    <tr class="calendar-row"></tr>
+                    <tr class="calendar-row"></tr>
+                    <tr class="calendar-row"></tr>
+                    <tr class="calendar-row"></tr>
+                </table>
+            </div>
+        </section>
+
+        <button id="submitButton">
+            <h1>Bestill</h1>
+        </button>
+    </main>
 </body>
 </html>

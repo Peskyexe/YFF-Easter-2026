@@ -1,0 +1,363 @@
+/* Basic styling for seksjonene */
+main {
+    width: min(850px, 85vw);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    align-items: center;
+
+    > section {
+        width: 100%;
+        background-color: var(--bg);
+        border-radius: 1.25em;
+        padding: 1.25em 3em 2em 3em;
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        gap: 1.25em;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75em;
+        }
+    }
+}
+
+
+/* Kontakt informasjon delen */
+.text-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 0.25em;
+
+    input {
+        appearance: none;
+        outline: none;
+
+        padding: 0.5em 1em;
+        font-size: 1.25em;
+        border-radius: 0.5em;
+        border: solid 2px var(--bg-dark);
+        background-color: var(--bg-light);
+
+        transition: 0.08s ease-in-out;
+        transition-property: border, background;
+
+        &:hover {
+            border-color: var(--border-muted);
+        }
+
+        &:focus {
+            border-color: var(--info);
+            background-color: var(--bg-light-tinted);
+        }
+    }
+
+    label {
+        font-size: 1.25em;
+    }
+}
+
+.user-info-wrapper {
+    /* Postnummer og poststed plassering */
+    #post-wrapper {
+        display: grid;
+        grid-template-columns: 4fr 3fr;
+        gap: 1.25em;
+    }
+
+
+    /* Mobilnummer styling */
+    #areaCode {
+        padding: 0.5em 0.75em;
+        top: 33px;
+        position: absolute;
+        border-right: solid 1px var(--bg-dark);
+        font-size: 1.25em;
+    }
+
+    #phone-input {
+        padding-left: calc(65px + 0.75em);
+    }
+}
+
+
+/* Heiskort delen */
+.pass-types-wrapper {
+    ul {
+        background-color: var(--bg-light);
+        border: solid 2px var(--bg-dark);
+        list-style: none;
+        padding: 1em 1.25em;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        border-radius: 0.75em;
+    }
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    label {
+        font-size: 1.25em;
+        font-weight: 500;
+    }
+
+
+}
+
+/* Heiskort mengde valg greia */
+.increment-value-input {
+    width: 115px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+
+    button {
+        outline: none;
+
+        height: 30px;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        border: none;
+        color: var(--bg-light);
+        font-size: 1.5em;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        line-height: 0;
+
+        opacity: 0.8;
+        background-color: var(--border-muted);
+        transition: opacity 0.08s ease-in-out;
+
+        &.enabled {
+            opacity: 1;
+            background-color: var(--primary);
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            &:active {
+                opacity: 0.6;
+            }
+        }
+    }
+
+    span {
+        text-align: center;
+        font-size: 1.25em;
+        font-weight: 500;
+    }
+}
+
+
+/* Dato delen */
+.calendar-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+
+    background-color: var(--bg-light);
+    padding: 0.75em 0.25em;
+    border-radius: 1em;
+    border: solid 2px var(--bg-dark);
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 0.75em;
+    padding: 0 23px;
+
+    label {
+        font-size: 1.25em;
+    }
+
+    button {
+        border: none;
+        background-color: var(--bg-light);
+        border-radius: 0.5em;
+        aspect-ratio: 1/1;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.25em;
+
+        transition: 0.1s ease-in-out;
+        transition-property: background;
+
+        &:hover {
+            background-color: var(--bg);
+        }
+
+        &:active {
+            background-color: var(--bg-light);
+        }
+    }
+
+    i {
+        font-size: 20px;
+    }
+} 
+
+.calendar {
+    width: 100%;
+
+    tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25em;
+    }
+
+    tr {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: 0.25em;
+    }
+
+    td {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.calendar-cell {
+    position: relative;
+
+    /* Datoene */
+    span {
+        position: relative;
+        z-index: 3;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 70px;
+        aspect-ratio: 5/3;
+        border-radius: 0.75em;
+        font-weight: 600;
+        font-size: 1.125em;
+        user-select: none;
+        background-color: var(--bg-light);
+
+        transition: 0.08s ease-in-out;
+        transition-property: background-color, color;
+
+        &:hover {
+            background-color: var(--bg);
+            color: var(--text);
+        }
+    }
+
+    /* Datoene som er utenfor månden */
+    &.disabled {
+        span {
+            color: var(--bg-dark);
+            background-color: var(--bg-light);
+            opacity: 1;
+        }
+    }
+
+    /* Valgte datoer */
+    &.selected {
+        span {
+            color: var(--bg-dark);
+            background-color: var(--primary);
+
+            &:hover {
+                color: var(--bg);
+                background-color: var(--primary-muted);
+            }
+        }
+    }
+
+    /* Bakgrunns farge merging for når du velger flere datoer i en linje */
+    &.range-start::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+
+        top: 0px;
+        bottom: 0px;
+        right: -26%;
+        left: 50%;
+
+        background-color: var(--primary);
+    }
+
+    &.range-middle::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+
+        top: 0px;
+        bottom: 0px;
+        right: -26%;
+        left: -26%;
+
+        background-color: var(--primary);
+    }
+
+    &.range-end::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+
+        top: 0px;
+        bottom: 0px;
+        right: 50%;
+        left: -26%;
+
+        background-color: var(--primary);
+    }
+}
+
+
+/* Bestill knappen */
+#submitButton {
+    width: 100%;
+    padding: 0.75em;
+    margin-bottom: 1.5em;
+    border-radius: 1.25em;
+    border: none;
+
+    background-color: var(--success);
+    box-shadow: var(--shadow);
+
+        transition: 0.1s ease-in-out;
+        transition-property: background;
+    
+    h1 {
+        color: var(--bg);
+        transition: 0.1s ease-in-out;
+        transition-property: color;
+    }
+
+    &:hover {
+        background-color: var(--success-hover);
+        h1 {
+            color: var(--bg-dark);
+        }
+    }
+
+    &:active {
+        background-color: var(--success);
+        h1 {
+            color: var(--bg);
+        }
+    }
+}
